@@ -85,3 +85,22 @@ app.get( '/api/books/:id', function( request, response ) {
     }
   });
 });
+
+// Update a book
+app.put( '/api/books/:id', function( request, response ) {
+  console.log( 'Updating book ' + request.body.title );
+  return BookModel.findById( request.params.id, function( err, book ) {
+    book.title = request.body.title;
+    book.author = request.body.author;
+    book.releaseDate = request.body.releaseDate;
+
+    return book.save( function( err ) {
+      if( !err ) {
+        console.log( 'book updated' );
+        return response.send( book );
+      } else {
+        console.log( err );
+      }
+    });
+  });
+});
