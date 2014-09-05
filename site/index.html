@@ -38,13 +38,14 @@
       <ul>
         <li><%= title %></li>
         <li><%= author %></li>
-        <li><%= releaseDate %></li>
+        <li><%= $.format.date( new Date( releaseDate ), 'MMMM yyyy' ) %></li>
         <li><%= keywords %></li>
       </ul>
       <button class="delete">Delete</button>
     </script>
 
     <script src="js/lib/jquery-1.11.1.min.js"></script>
+    <script src="js/lib/jquery-dateFormat.min.js"></script>
     <script src="js/lib/underscore-min.js"></script>
     <script src="js/lib/backbone-min.js"></script>
     <script src="js/models/book.js"></script>
