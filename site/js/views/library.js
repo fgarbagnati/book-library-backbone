@@ -3,6 +3,10 @@ var app = app || {};
 app.LibraryView = Backbone.View.extend({
   el: '#books',
 
+  events: {
+    'click #add':'addBook'
+  },
+
   initialize: function( initialBooks ) {
     this.collection = new app.Library( initialBooks );
     this.render();
@@ -22,12 +26,8 @@ app.LibraryView = Backbone.View.extend({
     this.$el.append( bookView.render().el );
   },
 
-  events: {
-    'click #add':'addBook'
-  },
-
   addBook: function( e ) {
-    e.preventDevault();
+    e.preventDefault();
 
     var formData = {};
 
