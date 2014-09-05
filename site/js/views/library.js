@@ -40,6 +40,6 @@ app.LibraryView = Backbone.View.extend({
         formData[ el.id ] = $( el ).val();
       }
     });
-    this.collection.add( new app.Book( formData ) );
+    this.collection.create( formData );
   }
 });
