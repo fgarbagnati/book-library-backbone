@@ -33,3 +33,16 @@ app.listen( port, function() {
 app.get( '/api', function( request, response) {
   response.send( 'Library API is running' );
 });
+
+// Connect to db
+mongoose.connect( 'mongodb://localhost/library_database');
+
+// Schemas
+var Book = new mongoose.Schema({
+  title: String
+  author: String,
+  releaseDate: Date
+});
+
+// Models
+var BookModel = mongoose.model( 'Book', Book );
